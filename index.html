@@ -3,12 +3,13 @@
 <html lang="en">
   <head>
     <script src="ipfs.js"></script>
+    <script src="xss.js"></script>
       <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', async () => {
       const node = await Ipfs.create({ repo: 'ipfs-' + Math.random() })
       window.node = node
 
-      const status = node.isOnline() ? 'online' : 'offline'
+      const status = node.isOnline() ? '🟢' : '🔴'
 
       console.log(`Node status: ${status}`)
       document.getElementById('status').innerHTML = `Node status: ${status}`
