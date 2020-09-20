@@ -1,6 +1,5 @@
-
-      document.addEventListener("DOMContentLoaded", async () => {
-        const node = await Ipfs.create({ repo: "ipfs-" + Math.random() });
+document.addEventListener("DOMContentLoaded", async () => {
+  const node = await Ipfs.create({ repo: "ipfs-" + Math.random() });
         window.node = node;
 
         const status = node.isOnline() ? "⬤ (Ready!)" : "⭘ (Not Ready!)";
@@ -19,4 +18,8 @@ document.getElementById("body").value = null
     document.getElementById("body").value = filterXSS(data.toString()) } 
   body.disabled = false;
    save.disabled = false;
+  
+  function updateHash(){
+    
+  }
       });

@@ -31,7 +31,6 @@
     <script src="ipfs.min.js" type="text/javascript"></script>
     <script src="main.js" type="text/javascript"></script>
     <script src="xss.js" type="text/javascript"></script>
-    <script src="autoresize.js" type="text/javascript"></script>
 
     <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
@@ -54,7 +53,7 @@
           cols="125"
          name="body"
         ></textarea><br>
- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" name="save" id="save">
+ <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" name="save" id="save" onclick="updateHash()">
   Save!
 </button>
 
@@ -69,11 +68,18 @@
         </button>
       </div>
       <div class="modal-body">
+<div>
+  
+</div>
         Since this isn't a server based application, you have to save your work. You have more privacy like that.
+        <h3>
+          Using Pinata
+        </h3>
+      This is the simplest way to store your
         <br>
         First, make sure you have IPFS installed. <a href="https://ipfs.io/">IPFS</a> installed. If you have not installed it yet, install it <a href="https://ipfs.io/#install">here.</a>
         <br>
-        Second, try
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

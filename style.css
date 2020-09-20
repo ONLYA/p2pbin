@@ -1,6 +1,7 @@
 textarea {
   outline: none;
   resize: none;
+  overflow: auto;
 }
 .center {
   margin: 0;
@@ -8,5 +9,4 @@ textarea {
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  
 }
