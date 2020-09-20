@@ -35,7 +35,7 @@
       async function updateHash (){
       var { cid } = await node.add(filterXSS(document.getElementById("body").value))
       console.log('Successfully stored: ', cid.string);
-    document.getElementById("hash").innerHTML = cid.string
+    document.getElementById("hash").innerHTML = "<center>"+ cid.string + "</center>"
   }
     </script>
     <link rel="stylesheet" href="style.css" type="text/css" />
@@ -77,7 +77,7 @@
 <div>
   
 </div>
-        <div id="hash"></div>
+        Your IPFS Hash: <code><pre id="hash" class="custom"></pre></code>
         Since this isn't a server based application, you have to save your work. You have more privacy like that.
         <h3>
           Using Pinata

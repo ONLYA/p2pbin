@@ -10,7 +10,14 @@ textarea {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-code {
-  border: 1px solid #999;
-  page-break-inside: avoid;
-}
+pre.custom {
+		text-align:left;
+		background: #333;
+    color: white;
+    padding: 1em;
+    border-radius: 2px;
+		tab-size: 2;
+		-moz-tab-size: 2;
+		-o-tab-size: 2;
+		-webkit-tab-size: 2;
+	}
