@@ -8,5 +8,14 @@
         console.log(`Node status: ${status}`);
         document.getElementById("status").innerHTML = `Node status: ${status}`;
 var params = new URLSearchParams(document.location.search.substring(1));
-if
+var id = params.get("id");
+if (!id){
+  id = ""
+}
+document.getElementById("body").value = ""
+        
+      for await (const data of
+      node.cat(id)) {
+    document.getElementById("body").value = data.toString() } 
+    
       });

@@ -4,7 +4,7 @@
     <title>IPFS in the Browser</title>
     <script src="ipfs.js" type="text/javascript"></script>
     <script type="text/javascript">
-      $('textarea').autoResize();
+      
 
       document.addEventListener("DOMContentLoaded", async () => {
         const node = await Ipfs.create({ repo: "ipfs-" + Math.random() });
