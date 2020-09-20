@@ -9,9 +9,9 @@
       const node = await Ipfs.create({ repo: 'ipfs-' + Math.random() })
       window.node = node
 
-      const status = node.isOnline() ? '🟢' : '🔴'
+      const status = node.isOnline() ? '⬤' : '⭘';
 
-      console.log(`Node status: ${status}`)
+      console.log(`Ready!`)
       document.getElementById('status').innerHTML = `Node status: ${status}`
 
       // You can write more code here to use it. Use methods like
@@ -21,7 +21,7 @@
   </script>
     
     <div id="status">
-      
+      Node status: ⭘
     </div>
   </head>
 </html>
