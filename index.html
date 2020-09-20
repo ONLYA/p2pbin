@@ -34,23 +34,28 @@
     <script src="autoresize.js" type="text/javascript"></script>
 
     <link rel="stylesheet" href="style.css" type="text/css" />
-
-    <div id="status">
-      IPFS status: ⭘
+  </head>
+    <header>
+  <div id="status">
+      IPFS status: ⭘ (Not ready, Please wait!)
     </div>
 <h1 id="title">
-  IPFSbin, a pastebin for IPFS
+ <center> IPFSbin, a pastebin for IPFS</center>
     </h1>
+  </header>
+  <body>
+    
+
     <div class="container">
       <center>
         <textarea
           id="body"
           rows="10"
           cols="125"
-         
+         name="body"
         ></textarea><br>
- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
+ <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" name="save" id="save">
+  Save!
 </button>
 
 <!-- Modal -->
@@ -75,5 +80,13 @@
 </div>
       </center>
     </div>
-  </head>
+  </body>
+  <footer>
+  
+    <script>
+   body.disabled = true;
+   save.disabled = true;
+   </script>
+    
+  </footer>
 </html>
