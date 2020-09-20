@@ -11,7 +11,6 @@ var id = params.get("id");
 if (!id){
   id = "QmQzCQn4puG4qu8PVysxZmscmQ5vT1ZXpqo7f58Uh9QfyY"
 }
-document.getElementById("body").value = null
         
       for await (const data of
       node.cat(id)) {
@@ -19,7 +18,5 @@ document.getElementById("body").value = null
   body.disabled = false;
    save.disabled = false;
   
-  function updateHash(){
-    
-  }
+
       });

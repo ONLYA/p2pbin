@@ -10,3 +10,7 @@ textarea {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+code {
+  border: 1px solid #999;
+  page-break-inside: avoid;
+}
