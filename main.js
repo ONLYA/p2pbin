@@ -10,7 +10,7 @@
 var params = new URLSearchParams(document.location.search.substring(1));
 var id = params.get("id");
 if (!id){
-  id = ""
+  id = "QmQzCQn4puG4qu8PVysxZmscmQ5vT1ZXpqo7f58Uh9QfyY"
 }
 document.getElementById("body").value = ""
         
