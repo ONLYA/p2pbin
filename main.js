@@ -32,8 +32,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("body").innerHTML = paste;
   }
   body.disabled = false;
-  save.disabled = false;
   copybtn.disabled = false;
+  encrypt.disabled = false;
+
   window.history.replaceState({}, document.title, "/");
 
 });
