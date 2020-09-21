@@ -27,10 +27,11 @@
       property="twitter:description"
       content="IPFSbin allows you to make pastes with the power of IPFS. This allows for Peer to Peer paste sharing."
     />
-    <script
-      src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"
-      type="text/javascript"
-    ></script>
+     <script
+        src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"
+        type="text/javascript"
+      >
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -57,20 +58,13 @@
       crossorigin="anonymous"
       type="text/javascript"
     ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"
-      integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o="
-      crossorigin="anonymous"
-    ></script>
-
-    <link rel="manifest" href="/manifest.json" />
-
+      <link rel="manifest" href="/manifest.json" />
+     
+    </script>
     <script src="main.js" type="text/javascript"></script>
     <script src="xss.js" type="text/javascript"></script>
     <script>
       async function updateHash() {
-        var body2 = filterXSS(document.getElementById("body").value)
-        
         var { cid } = await node.add(
           filterXSS(document.getElementById("body").value)
         );
@@ -84,11 +78,8 @@
         ).innerHTML = `<center><code>https://gateway.ipfs.io/ipfs/${cid.string}</code></center>`;
       }
       async function copy() {
-        if (document.getElementById("encrypt").checked){
-          
-        }
         var { cid } = await node.add(
-          filterXSS(document.getElementById("body"))
+          filterXSS(document.getElementById("body").value)
         );
         document.getElementById(
           "copy2"
@@ -160,9 +151,7 @@ Loading...</textarea
           data-clipboard-target="#copy2"
         >
           Copy URL
-        </button><br>
-        <input type="checkbox" id="encrypt"> Encrypt<br>
-        <input type="text" id="encryptpass" name="encryptpass">
+        </button>
         <!-- Modal -->
         <div
           class="modal fade"
