@@ -80,6 +80,9 @@
           "copy2"
         ).innerHTML = `${location.href}?id=${cid.string}`;
       }
+      if (location.protocol === "http:") {
+  location.replace(window.location.href.replace("http:", "https:"));
+} // Credit: youngchief-btw
     </script>
     <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
@@ -97,6 +100,7 @@
     <div class="container">
       <center>
         <textarea id="body" rows="10" cols="125" name="body">Loading...</textarea><br />
+        <center><textarea disabled rows="1" cols="100" id="copy2" name="copy2" onclick="document.getElementById('urls').focus();document.getElementById('urls').select();"></textarea></center>
         <button
           type="button"
           class="btn btn-primary"
@@ -184,7 +188,7 @@
         </div>
       </center>
     </div>
-    <center><textarea disabled rows="1" cols="100" id="copy2" name="copy2" onclick="document.getElementById('urls').focus();document.getElementById('urls').select();"></textarea></center>
+    <center></center>
   </body>
   <br /><br />
   <footer>
@@ -196,9 +200,6 @@
     <p>
       <center>
         <script src="copyright.js"></script>
-        <div id="copy2" hidden>
-          
-        </div>
       </center>
     </p>
   </footer>
