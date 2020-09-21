@@ -17,4 +17,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   body.disabled = false;
   save.disabled = false;
+  params.delete("id");
 });
