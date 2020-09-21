@@ -73,11 +73,11 @@
           filterXSS(document.getElementById("body").value)
         );
         document.getElementById(
-          "copy2"
+          "mainurl"
         ).innerHTML = `Editor: ${location.href}?id=${cid.string}`;
         document.getElementById(
-          "copy3"
-        ).innerHTML = `Raw: ${location.href}raw/?id=${cid.string}`;
+          "rawurl"
+        ).innerHTML = `Raw: https://gateway.ipfs.io/ipfs/${cid.string}`;
       }
       if (location.protocol === "http:") {
         location.replace(window.location.href.replace("http:", "https:"));
@@ -132,7 +132,7 @@ Loading...</textarea
           onclick="copy()"
           data-clipboard-target="#copy2"
         >
-          Copy URL
+          Generate URLs
         </button>
       </center>
     </div>
