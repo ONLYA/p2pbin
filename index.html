@@ -78,7 +78,7 @@
         var { cid } = await node.add(filterXSS(document.getElementById("body").value));
     document.getElementById(
           "copy2"
-        ).innerHTML = `<center><code>${location.href}?id=${cid.string}</code></center>`;
+        ).innerHTML = `${location.href}?id=${cid.string}`;
       }
     </script>
     <link rel="stylesheet" href="style.css" type="text/css" />
@@ -106,9 +106,9 @@
           id="save"
           onclick="updateHash()"
         >
-          Save!
+          Save! (Advanced)
         </button>
-<button type="button" class="btn btn-primary" name="copybtn" id="copybtn" onclick="copy()">Copy URL</button>
+<button type="button" class="btn btn-primary" name="copybtn" id="copybtn" onclick="copy()" data-clipboard-target="#copy2">Copy URL</button>
         <!-- Modal -->
         <div
           class="modal fade"
@@ -184,6 +184,7 @@
         </div>
       </center>
     </div>
+    <center><textarea disabled rows="1" cols="100" id="copy2" name="copy2" onclick="document.getElementById('urls').focus();document.getElementById('urls').select();"></textarea></center>
   </body>
   <br /><br />
   <footer>
