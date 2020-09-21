@@ -9,6 +9,7 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
+
 document.addEventListener("DOMContentLoaded", async () => {
   const node = await Ipfs.create({ repo: "ipfs-" + Math.random() });
   window.node = node;
