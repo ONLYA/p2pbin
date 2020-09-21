@@ -27,6 +27,12 @@
       property="twitter:description"
       content="IPFSbin allows you to make pastes with the power of IPFS. This allows for Peer to Peer paste sharing."
     />
+    <script
+      src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"
+      type="text/javascript"
+    >
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -53,28 +59,12 @@
       crossorigin="anonymous"
       type="text/javascript"
     ></script>
-      <link rel="manifest" href="/manifest.json" />
-      <script
-        src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"
-        type="text/javascript"
-      >
-    </script>
+    <link rel="manifest" href="/manifest.json" />
+
     <script src="main.js" type="text/javascript"></script>
     <script src="xss.js" type="text/javascript"></script>
     <script>
-      async function updateHash() {
-        var { cid } = await node.add(
-          filterXSS(document.getElementById("body").value)
-        );
-        console.log("Successfully stored: ", cid.string);
-        document.getElementById("hash").innerHTML = cid.string;
-        document.getElementById(
-          "url"
-        ).innerHTML = `<center><code>${location.href}?id=${cid.string}</code></center>`;
-        document.getElementById(
-          "gateway"
-        ).innerHTML = `<center><code>https://gateway.ipfs.io/ipfs/${cid.string}</code></center>`;
-      }
+
       async function copy() {
         var { cid } = await node.add(
           filterXSS(document.getElementById("body").value)
@@ -128,18 +118,6 @@ Loading...</textarea
             onclick="document.getElementById('copy2').focus();document.getElementById('copy2').select();"
           ></textarea>
         </center>
-
-        <button
-          type="button"
-          class="btn btn-primary"
-          data-toggle="modal"
-          data-target="#exampleModal"
-          name="save"
-          id="save"
-          onclick="updateHash()"
-        >
-          Save! (Advanced)
-        </button>
         <button
           type="button"
           class="btn btn-primary"
@@ -150,79 +128,6 @@ Loading...</textarea
         >
           Copy URL
         </button>
-        <!-- Modal -->
-        <div
-          class="modal fade"
-          id="exampleModal"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                  Save your paste!
-                </h5>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div></div>
-                Your IPFS Hash:
-                <code><pre id="hash" class="custom"></pre></code>
-                Since this isn't a server based application, you have to save
-                your work. This:
-                <ul>
-                  <li>Give us no server cost</li>
-                  <li>Gives you more control of your data</li>
-                  <li>Helps the distrubuted web.</li>
-                </ul>
-                <h4>
-                  Using Pinata
-                </h4>
-                This is the simplest way to store your work. Just watch this
-                video!
-                <video width="400" controls>
-                  <source
-                    src="https://cdn.glitch.com/82004cd7-a28e-47b6-b10c-963b72f410c5%2FIPFSbin%20Pinata%20Example.mp4?v=1600635709663"
-                    type="video/mp4"
-                  />
-                  Your browser does not support HTML video. Plese try again on a
-                  newer/supported browser.
-                </video>
-                <br /><br />
-
-                <h3>
-                  How to acces your paste again
-                </h3>
-                <h5>
-                  Editor:
-                </h5>
-                <div id="url"></div>
-                <h5>
-                  Raw:
-                </h5>
-                <div id="gateway"></div>
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  data-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
       </center>
     </div>
     <center></center>
