@@ -1,3 +1,5 @@
+
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('/sw.js').then(function(registration) {
@@ -34,7 +36,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   body.disabled = false;
   copybtn.disabled = false;
-  encrypt.disabled = false;
 
   window.history.replaceState({}, document.title, "/");
 
