@@ -24,6 +24,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   for await (const data of node.cat(id)) {
+    if (params.get("key")){
+      CryptoJS.AES.decrypt("", "Secret Passphrase")
+      document.getElementById("body").value = filterXSS(data.toString());
+    document.getElementById("body").innerHTML = filterXSS(data.toString());
+    }
     document.getElementById("body").value = filterXSS(data.toString());
     document.getElementById("body").innerHTML = filterXSS(data.toString());
   }
