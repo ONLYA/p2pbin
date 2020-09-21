@@ -34,8 +34,7 @@
       property="twitter:description"
       content="IPFSbin allows you to make pastes with the power of IPFS. This allows for Peer to Peer paste sharing."
     />
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+ 
 
     <script
       src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"
@@ -104,9 +103,15 @@
   <body>
     <div class="container">
       <center>
-      <div id="editor">
-        aaaaaaaaaaa
-        </div>
+        <textarea
+          id="paste"
+          rows="12"
+          cols="125"
+          name="paste"
+          style="width:100%"
+        >
+Loading...</textarea
+        >
         <center>
           <h4>
             Editor URL:
@@ -148,12 +153,6 @@
       paste.disabled = true;
       copybtn.disabled = true;
     </script>
-    <script>
-  var quill = new Quill('#editor', {
-    theme: 'snow'
-  });
-      console.log(quill.getContents())
-</script>
     <p>
       <center>
         <script src="copyright.js"></script>
