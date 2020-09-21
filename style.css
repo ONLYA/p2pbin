@@ -21,7 +21,10 @@ pre.custom {
   -o-tab-size: 2;
   -webkit-tab-size: 2;
 }
-.copy
+.copy {
+     width: 3vw;
+    height: 3vh;
+}
 html {
   font-size: 100%;
 }
