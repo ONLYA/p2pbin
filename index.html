@@ -27,7 +27,7 @@
       property="twitter:description"
       content="IPFSbin allows you to make pastes with the power of IPFS. This allows for Peer to Peer paste sharing."
     />
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -74,15 +74,20 @@
           "gateway"
         ).innerHTML = `<center><code>https://gateway.ipfs.io/ipfs/${cid.string}</code></center>`;
       }
-      async function copy(){
-        var { cid } = await node.add(filterXSS(document.getElementById("body").value));
-    document.getElementById(
+      async function copy() {
+        var { cid } = await node.add(
+          filterXSS(document.getElementById("body").value)
+        );
+        document.getElementById(
           "copy2"
-        ).innerHTML = `${location.href}?id=${cid.string}`;
+        ).innerHTML = `Editor: ${location.href}?id=${cid.string}`;
+        document.getElementById(
+          "copy3"
+        ).innerHTML = `Raw: ${location.href}raw/?id=${cid.string}`;
       }
       if (location.protocol === "http:") {
-  location.replace(window.location.href.replace("http:", "https:"));
-} // Credit: youngchief-btw
+        location.replace(window.location.href.replace("http:", "https:"));
+      } // Credit: youngchief-btw
     </script>
     <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
@@ -99,8 +104,32 @@
   <body>
     <div class="container">
       <center>
-        <textarea id="body" rows="10" cols="125" name="body">Loading...</textarea><br />
-        <center><textarea disabled rows="1" cols="100" id="copy2" name="copy2" onclick="document.getElementById('copy2').focus();document.getElementById('copy2').select();"></textarea></center>
+        
+
+        <textarea id="body" rows="10" cols="125" name="body">
+Loading...</textarea
+        >
+        <center>
+          <textarea
+            disabled
+            rows="1"
+            cols="100"
+            id="copy2"
+            name="copy2"
+            onclick="document.getElementById('copy2').focus();document.getElementById('copy2').select();"
+          ></textarea>
+        </center>
+        <center>
+          <textarea
+            disabled
+            rows="1"
+            cols="100"
+            id="copy3"
+            name="copy3"
+            onclick="document.getElementById('copy2').focus();document.getElementById('copy2').select();"
+          ></textarea>
+        </center>
+
         <button
           type="button"
           class="btn btn-primary"
@@ -112,7 +141,16 @@
         >
           Save! (Advanced)
         </button>
-<button type="button" class="btn btn-primary" name="copybtn" id="copybtn" onclick="copy()" data-clipboard-target="#copy2">Copy URL</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          name="copybtn"
+          id="copybtn"
+          onclick="copy()"
+          data-clipboard-target="#copy2"
+        >
+          Copy URL
+        </button>
         <!-- Modal -->
         <div
           class="modal fade"
