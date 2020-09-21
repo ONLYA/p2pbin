@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   for await (const data of node.cat(id)) {
     document.getElementById("body").value = filterXSS(data.toString());
+    document.getElementById("body").innerHTML = filterXSS(data.toString()).relpace("\n", "");
   }
   body.disabled = false;
   save.disabled = false;
