@@ -1,6 +1,0 @@
-{
-    "name": "IPFSbin",
-    "short_name": "IPFSbin",
-    "description": "IPFSbin allows you to make pastes with the power of IPFS. This allows for Peer to Peer paste sharing.",
-    "start_url": "/"
-}
