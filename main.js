@@ -29,5 +29,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   body.disabled = false;
   save.disabled = false;
   copybtn.disabled = false;
-  params.delete("id");
+  window.history.replaceState({}, document.title, "/");
+
 });
