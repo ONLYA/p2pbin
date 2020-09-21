@@ -24,8 +24,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   for await (const data of node.cat(id)) {
-    document.getElementById("body").value = filterXSS(data.toString());
-    document.getElementById("body").innerHTML = filterXSS(data.toString());
+    var paste = filterXSS(data.toString());
+    document.getElementById("body").value = paste;
+    document.getElementById("body").innerHTML = paste;
   }
   body.disabled = false;
   save.disabled = false;
