@@ -73,7 +73,7 @@
     <script>
       async function copy() {
         var { cid } = await node.add(
-          filterXSS(document.getElementById("body").value)
+          filterXSS(document.getElementById("paste").value)
         );
         document.getElementById(
           "mainurl"
