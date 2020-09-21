@@ -27,14 +27,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   for await (const data of node.cat(id)) {
-    var paste = filterXSS(data.toString());
-    if (params.get("key")){
-      paste = CryptoJS.AES.decrypt(paste, params.get("key"));
-    }
-    document.getElementById("body").value = paste;
-    document.getElementById("body").innerHTML = paste;
+    
+    document.getElementById("paste").value = filterXSS(data.toString());
+    document.getElementById("paste").innerHTML = filterXSS(data.toString());
   }
-  body.disabled = false;
+  paste.disabled = false;
   copybtn.disabled = false;
 
   window.history.replaceState({}, document.title, "/");

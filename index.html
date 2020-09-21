@@ -36,21 +36,24 @@
     <script
       src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"
       type="text/javascript"
-    >
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"
+      defer
+    ></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
       crossorigin="anonymous"
       type="text/javascript"
+      defer
     ></script>
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
       integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
       crossorigin="anonymous"
       type="text/javascript"
+      defer
     ></script>
     <link
       rel="stylesheet"
@@ -58,12 +61,14 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
       type="text/css"
+      defer
     />
     <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
       type="text/javascript"
+      defer
     ></script>
     <link rel="manifest" href="/manifest.json" />
 
@@ -77,9 +82,8 @@
         document.getElementById(
           "mainurl"
         ).innerHTML = `${location.href}?id=${cid.string}`;
-        document.getElementById(
-          "rawurl"
-        ).innerHTML = "https://gateway.ipfs.io/ipfs/" + cid.string;
+        document.getElementById("rawurl").innerHTML =
+          "https://gateway.ipfs.io/ipfs/" + cid.string;
       }
       if (location.protocol === "http:") {
         location.replace(window.location.href.replace("http:", "https:"));
@@ -100,7 +104,7 @@
   <body>
     <div class="container">
       <center>
-        <textarea id="body" rows="10" cols="125" name="body" style="width:100%">
+        <textarea id="paste" rows="10" cols="125" name="paste" style="width:100%">
 Loading...</textarea
         >
         <center>
@@ -141,7 +145,7 @@ Loading...</textarea
   <br /><br />
   <footer>
     <script>
-      body.disabled = true;
+      paste.disabled = true;
       copybtn.disabled = true;
     </script>
     <p>
