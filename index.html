@@ -27,7 +27,7 @@
       property="twitter:description"
       content="IPFSbin allows you to make pastes with the power of IPFS. This allows for Peer to Peer paste sharing."
     />
-
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -73,6 +73,12 @@
         document.getElementById(
           "gateway"
         ).innerHTML = `<center><code>https://gateway.ipfs.io/ipfs/${cid.string}</code></center>`;
+      }
+      async function copy(){
+        var { cid } = await node.add(filterXSS(document.getElementById("body").value));
+    document.getElementById(
+          "copy2"
+        ).innerHTML = `<center><code>${location.href}?id=${cid.string}</code></center>`;
       }
     </script>
     <link rel="stylesheet" href="style.css" type="text/css" />
@@ -189,6 +195,9 @@
     <p>
       <center>
         <script src="copyright.js"></script>
+        <div id="copy2" hidden>
+          
+        </div>
       </center>
     </p>
   </footer>
