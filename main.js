@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   var params = new URLSearchParams(document.location.search.substring(1));
   var id = params.get("id");
   if (!id) {
-    id = "QmZbCgzQUKensoruM7ghihFBD5vLp8g15CSrzTxyRpd2Mi";
+    id = "QmVrs4fxNVqczt8FsWTp2FGXoA1rMNoDwCyFwnYwHAvUtz";
   }
 
   for await (const data of node.cat(id)) {
