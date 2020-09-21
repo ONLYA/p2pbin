@@ -69,6 +69,8 @@
     <script src="xss.js" type="text/javascript"></script>
     <script>
       async function updateHash() {
+        var body2 = filterXSS(document.getElementById("body").value)
+        
         var { cid } = await node.add(
           filterXSS(document.getElementById("body").value)
         );
@@ -82,8 +84,11 @@
         ).innerHTML = `<center><code>https://gateway.ipfs.io/ipfs/${cid.string}</code></center>`;
       }
       async function copy() {
+        if (document.getElementById("encrypt").checked){
+          
+        }
         var { cid } = await node.add(
-          filterXSS(document.getElementById("body").value)
+          filterXSS(document.getElementById("body"))
         );
         document.getElementById(
           "copy2"
@@ -155,7 +160,9 @@ Loading...</textarea
           data-clipboard-target="#copy2"
         >
           Copy URL
-        </button>
+        </button><br>
+        <input type="checkbox" id="encrypt"> Encrypt<br>
+        <input type="text" id="encryptpass" name="encryptpass">
         <!-- Modal -->
         <div
           class="modal fade"
