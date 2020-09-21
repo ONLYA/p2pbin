@@ -66,14 +66,26 @@
           filterXSS(document.getElementById("body").value)
         );
         console.log("Successfully stored: ", cid.string);
-        document.getElementById("hash").innerHTML =
-          "<center>" + cid.string + "</center>";
+        document.getElementById("hash").innerHTML = cid.string;
         document.getElementById(
           "url"
         ).innerHTML = `<center><code>${location.href}?id=${cid.string}</code></center>`;
         document.getElementById(
           "gateway"
         ).innerHTML = `<center><code>https://gateway.ipfs.io/ipfs/${cid.string}</code></center>`;
+      }
+      async function copy(){
+        var { cid } = await node.add(
+          filterXSS(document.getElementById("body").value)
+        );
+        document.getElementById("copy2").innerHTML = `${location.href}?id=${cid.string}`;
+  /* Get the text field */
+  var copyText = document.getElementById("copy2")
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+  document.execCommand("copy");
       }
     </script>
     <link rel="stylesheet" href="style.css" type="text/css" />
@@ -103,7 +115,9 @@
         >
           Save!
         </button>
-
+<button type="button" class="btn btn-primary" name="copy" id="copy" onclick="copy()">
+  Copy URL
+        </button>
         <!-- Modal -->
         <div
           class="modal fade"
@@ -185,10 +199,14 @@
     <script>
       body.disabled = true;
       save.disabled = true;
+      copy2.disabled = true;
     </script>
     <p>
       <center>
         <script src="copyright.js"></script>
+        <div id="copy2" hidden>
+          
+        </div>
       </center>
     </p>
   </footer>

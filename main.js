@@ -28,5 +28,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   body.disabled = false;
   save.disabled = false;
+  copy2.disabled = false;
   params.delete("id");
 });
