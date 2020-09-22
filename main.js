@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   for await (const data of node.cat(id)) {
     
     document.getElementById("paste").value = filterXSS(data.toString());
-    document.getElementById("paste").innerHTML = filterXSS(data.toString());
+    
   }
   paste.disabled = false;
   copybtn.disabled = false;
