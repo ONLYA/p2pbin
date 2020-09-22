@@ -74,7 +74,6 @@
     <script src="main.js" type="text/javascript" defer></script>
     <script src="xss.js" type="text/javascript" defer></script>
     <script>
-      
       async function copy() {
         var { cid } = await node.add(
           filterXSS(document.getElementById("paste").value)
@@ -88,53 +87,70 @@
       if (location.protocol === "http:") {
         location.replace(window.location.href.replace("http:", "https:"));
       } // Credit: youngchief-btw
-function clip (a){
-  
-  navigator.clipboard.writeText(document.getElementById("paste").value).then(function() {
-  console.log("Copied!")
-  document.getElementById(a).innerHTML = "Copied to clipboard!"
-    setTimeout(function(){ document.getElementById(a).innerHTML = "Copy!" }, 3000);
-}, function() {
-  console.error("Failed to copy!")
-    document.getElementById(a).innerHTML = "Failed to copy! Please try on a newer/diffrent browser"
-    setTimeout(function(){ document.getElementById(a).innerHTML = "Copy!" }, 3000);
-
-});
-}
-      
+      function clip(a) {
+        navigator.clipboard
+          .writeText(document.getElementById("paste").value)
+          .then(
+            function() {
+              console.log("Copied!");
+              document.getElementById(a).innerHTML = "Copied to clipboard!";
+              setTimeout(function() {
+                document.getElementById(a).innerHTML = "Copy!";
+              }, 3000);
+            },
+            function() {
+              console.error("Failed to copy!");
+              document.getElementById(a).innerHTML =
+                "Failed to copy! Please try on a newer/diffrent browser";
+              setTimeout(function() {
+                document.getElementById(a).innerHTML = "Copy!";
+              }, 3000);
+            }
+          );
+      }
     </script>
     <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
-  <header >
+  <header>
     <div style="background: rgba(0, 0, 0, 0.2);">
       <div class="btn-group " role="group" aria-label="nav">
         <button type="button" class="" onclick="location.replace('')">
           P2Pbin
         </button>
-        <textarea rows="1" cols="1" id="mainurl" name="mainurl" hidden></textarea>
-      
-        <button onclick="clip('copybtn')" class="" id="copybtn" name="copybtn" disabled>Copy URL!</button>
-      
+        <textarea
+          rows="1"
+          cols="1"
+          id="mainurl"
+          name="mainurl"
+          hidden
+        ></textarea>
+
+        <button
+          onclick="clip('copybtn')"
+          class=""
+          id="copybtn"
+          name="copybtn"
+          disabled
+        >
+          Copy URL!
+        </button>
       </div>
     </div>
-    
-
   </header>
   <body class="back">
-      <center>
-        <textarea
-          id="paste"
-          rows="24"
-          cols="125"
-          name="paste"
-          style="width:100%;font-size:15px;background-color:#002b36;color:#FFFFFF"
-          oninput="copy()"
-                  disabled
-        >
+    <center>
+      <textarea
+        id="paste"
+        rows="24"
+        cols="125"
+        name="paste"
+        style="width:100%;font-size:15px;background-color:#002b36;color:#FFFFFF"
+        oninput="copy()"
+        disabled
+      >
 Loading...</textarea
-        >
-      </center>
+      >
+    </center>
   </body>
-  <footer>
-  </footer>
+  <footer></footer>
 </html>
