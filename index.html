@@ -92,7 +92,7 @@
           filterXSS(document.getElementById("paste").value)
         );
         navigator.clipboard
-          .writeText(cid.string)
+          .writeText(`${location.href}?id=${cid.string}`)
           .then(
             function() {
               console.log("Copied!");
