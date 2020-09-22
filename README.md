@@ -22,5 +22,11 @@ Thanks:
 - @youngchief_btw for the HTTP to HTTPS redirect
 - @khalby786 for the PWA
 
+
+### How To selfhost:
+```
+git clone github.com/aboutDavid/p2pbin.git
+
+```
 Project URL: [https://p2pbin.glitch.me/](https://p2pbin.glitch.me/)
 GitHub: [https://github.com/aboutDavid/p2pbin](https://github.com/aboutDavid/p2pbin)
