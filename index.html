@@ -68,6 +68,7 @@
       type="text/javascript"
       defer
     ></script>
+<script src="https://cdn.jsdelivr.net/gh/fcmam5/nightly.js@v1.0/dist/nightly.min.js"></script>
 
     <link rel="manifest" href="/manifest.json" />
 
@@ -122,6 +123,10 @@
   }
         paste.disabled = false;
       }
+      function mode(mode){
+        var Nightly = new Nightly();
+        Nightly.lightify();
+      }
     </script>
     <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
@@ -157,6 +162,10 @@
         >
           Load
         </button>
+<select id="Theme" onchange="mode()">
+  <option value="lightify" selected>Dark mode</option>
+  <option value="Audi" selected>Light mode</option>
+</select>
       </div>
     </div>
   </header>
