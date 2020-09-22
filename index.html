@@ -88,16 +88,16 @@
       if (location.protocol === "http:") {
         location.replace(window.location.href.replace("http:", "https:"));
       } // Credit: youngchief-btw
-function clip (){
+function clip (a){
   
-  navigator.clipboard.writeText(document.getElementById("mainurl").value).then(function() {
+  navigator.clipboard.writeText(document.getElementById("paste").value).then(function() {
   console.log("Copied!")
-  document.getElementById("copybtn").innerHTML = "Copied to clipboard!"
-    setTimeout(function(){ document.getElementById("copybtn").innerHTML = "Copy!" }, 3000);
+  document.getElementById(a).innerHTML = "Copied to clipboard!"
+    setTimeout(function(){ document.getElementById(a).innerHTML = "Copy!" }, 3000);
 }, function() {
   console.error("Failed to copy!")
-    document.getElementById("copybtn").innerHTML = "Failed to copy! Please try on a newer/diffrent browser"
-    setTimeout(function(){ document.getElementById("copybtn").innerHTML = "Copy!" }, 3000);
+    document.getElementById(a).innerHTML = "Failed to copy! Please try on a newer/diffrent browser"
+    setTimeout(function(){ document.getElementById(a).innerHTML = "Copy!" }, 3000);
 
 });
 }
@@ -112,7 +112,9 @@ function clip (){
           P2Pbin
         </button>
         <textarea rows="1" cols="1" id="mainurl" name="mainurl" hidden></textarea>
-        <button onclick="clip()" class="" id="copybtn" name="copybtn" disabled>Copy!</button>
+        <textarea rows="1" cols="1" id="rawurl" name="rawurl" hidden></textarea>
+        <button onclick="clip('mainurl')" class="" id="copybtn" name="copybtn" disabled>Copy main URL</button>
+      <button onclick="clip('rawurl')" class="" id="copybtnraw" name="copybtnraw" disabled>Copy raw URL</button>
       </div>
     </div>
     
