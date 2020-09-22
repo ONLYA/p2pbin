@@ -40,6 +40,10 @@
 
     document.getElementById("get").innerHTML = "Can get: 🟢";
   }
+  function reset() {
+    document.getElementById("get").innerHTML = "Can get: 🔴";
+    document.getElementById("push").innerHTML = "Can store: 🔴";
+  }
 </script>
 
 <h1>
@@ -48,9 +52,16 @@
 <p id="status">Node status: 🔴</p>
 <p id="push">Can store: 🔴</p>
 <p id="get">Can get: 🔴</p>
+
 <button onclick="push();">
-  Push Test
+  Store Test
 </button>
 <button onclick="get();">
   Get Test
+</button>
+<button onclick="get();push();">
+  Do all test
+</button>
+<button onclick="reset();">
+  Reset
 </button>
