@@ -73,7 +73,11 @@
     <link rel="manifest" href="/manifest.json" />
 
     <script src="main.js" type="text/javascript" defer></script>
+
     <script>
+        if (!localStorage.getItem("theme")) {
+    localStorage.getItem("dark");
+  }
       async function copy() {
         var { cid } = await node.add(document.getElementById("paste").value);
         document.getElementById(
@@ -119,9 +123,26 @@
         }
         paste.disabled = false;
       }
-      function mode(){
-        
-      }
+      function mode() {
+
+  if (localStorage.getItem("theme") === "dark") {
+    localStorage.setItem("theme", "light");
+    document.body.style.backgroundColor = "white";
+    paste.style.backgroundColor = "white";
+    paste.style.color = "black";
+
+    return;
+  }
+  if (localStorage.getItem("theme") === "light") {
+    localStorage.setItem("theme", "dark");
+    document.body.style.backgroundColor = "white";
+    paste.style.backgroundColor = "#002b36";
+    paste.style.color = "#002b36";
+
+    return;
+  }
+}
+
     </script>
     
     <link rel="stylesheet" href="style.css" type="text/css" />
