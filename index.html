@@ -68,7 +68,6 @@
       type="text/javascript"
       defer
     ></script>
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
 
     <link rel="manifest" href="/manifest.json" />
 
@@ -89,6 +88,7 @@
         location.replace(window.location.href.replace("http:", "https:"));
       } // Credit: youngchief-btw
 function clip (){
+  
   document.getElementById("mainurl").select();
 document.execCommand("copy");
 }
@@ -107,7 +107,7 @@ document.execCommand("copy");
         <button type="button" class="btn" onclick="location.replace('')">
           Home
         </button>
-        <textarea rows="1" cols="20" id="mainurl" name="mainurl" oninput="copy()"></textarea>
+        <textarea rows="1" cols="20" id="mainurl" name="mainurl" oninput=""></textarea>
         <button onclick="clip()" class="btn">Copy!</button>
       </div>
     </div>
@@ -142,6 +142,7 @@ document.execCommand("copy");
           cols="125"
           name="paste"
           style="width:100%"
+          oninput="copy()"
         >
 Loading...</textarea
         >
