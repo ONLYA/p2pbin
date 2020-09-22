@@ -1,6 +1,6 @@
 {
-  "name": "IPFSbin",
-  "short_name": "IPFSbin",
+  "name": "P2Pbin",
+  "short_name": "P2Pbin",
   "start_url": ".",
   "display": "minimal-ui",
   "background_color": "#fff",
