@@ -139,6 +139,7 @@
         <button type="button" class="">
           P2Pbin
         </button>
+        &nbsp;&nbsp;
         <textarea
           rows="1"
           cols="1"
@@ -147,7 +148,7 @@
           hidden
           type="button"
         ></textarea>
-
+        &nbsp;
         <button
           onclick="clip('copybtn')"
           class=""
@@ -158,18 +159,28 @@
         >
           Copy URL!
         </button>
+        &nbsp;
         <button onclick="load()" class="" id="load" name="load" type="button">
           Load
         </button>
-        <button onclick="document.getElementById('paste').value = null" class="" id="reset" name="reset" type="button">
+        &nbsp;
+        <button
+          onclick="document.getElementById('paste').value = null"
+          class=""
+          id="reset"
+          name="reset"
+          type="button"
+        >
           Reset
         </button>
+        &nbsp;
       </div>
     </div>
   </header>
   <body class="back">
     <center>
       <textarea
+        autocomplete="off"
         id="paste"
         rows="24"
         cols="125"
