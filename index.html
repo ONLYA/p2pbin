@@ -74,6 +74,7 @@
     <script src="main.js" type="text/javascript" defer></script>
     <script src="xss.js" type="text/javascript" defer></script>
     <script>
+      
       async function copy() {
         var { cid } = await node.add(
           filterXSS(document.getElementById("paste").value)
@@ -89,8 +90,13 @@
       } // Credit: youngchief-btw
 function clip (){
   
-  document.getElementById("mainurl").select();
-document.execCommand("copy");
+  navigator.clipboard.writeText(document.getElementById("mainurl").value).then(function() {
+  console.log("Copied!")
+  document.getElementById("copymsg").innerHTML = "Copied to clipboard!"
+}, function() {
+  console.error("Failed to copy!")
+document.getElementById("copymsg").innerHTML = "Failed to copy! Please try on a newer/diffrent browser"
+});
 }
     </script>
     <link rel="stylesheet" href="style.css" type="text/css" />
@@ -107,34 +113,23 @@ document.execCommand("copy");
         <button type="button" class="btn" onclick="location.replace('')">
           Home
         </button>
-        <textarea rows="1" cols="20" id="mainurl" name="mainurl" oninput=""></textarea>
+        <textarea rows="1" cols="20" id="mainurl" name="mainurl" disabled hidden></textarea>
         <button onclick="clip()" class="btn">Copy!</button>
+        <small class="form-text text-muted" id="copymsg" name="copymsg" style="font-size: 15px;"></small>
       </div>
     </div>
     <div id="status">
       &nbsp;IPFS status: ⭘ (Not ready, Please wait!)
     </div>
     <br /><br /><br />
-    <!-- -->
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      <strong>Warning!</strong> UI changes are happening. Things may not work!
-      <button
-        type="button"
-        class="close"
-        data-dismiss="alert"
-        aria-label="Close"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <!-- -->
+
     <h1 id="title">
       <center>IPFSbin, a pastebin for IPFS</center>
     </h1>
     <br /><br /><br />
   </header>
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <center>
         <textarea
           id="paste"
@@ -146,36 +141,7 @@ document.execCommand("copy");
         >
 Loading...</textarea
         >
-        <center>
-          <h4>
-            Editor URL:
-          </h4>
-          <pre class="custom"><code
-            id="mainurls"
-            name="mainirl"
-            style="width:100%"
-          ></code></pre>
-        </center>
-        <center>
-          <h4>
-            Raw URL:
-          </h4>
-          <pre class="custom"><code
-            id="rawurl"
-            name="rawurl"
-            style="width:100%"
-          ></code></pre>
-        </center>
-        <button
-          type="button"
-          class="btn btn-primary"
-          name="copybtn"
-          id="copybtn"
-          onclick="copy()"
-          data-clipboard-target="#copy2"
-        >
-          Generate URLs
-        </button>
+
       </center>
     </div>
     <center></center>
