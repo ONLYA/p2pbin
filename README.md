@@ -24,9 +24,9 @@ Thanks:
 
 
 ### How To selfhost:
-1. download the latest version: https://github.com/owner/repository/releases/latest/download/
-2. Unzip it
-3. Then, add it using this command
+1. Download the latest version: [https://github.com/owner/repository/releases/latest/download/](https://github.com/owner/repository/releases/latest/download/)
+2. Unzip it.
+3. Then, add it using this command.
 ```
 ipfs add -r p2pbin/
 ```
