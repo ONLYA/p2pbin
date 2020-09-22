@@ -75,6 +75,9 @@
       integrity="sha256-ji0yVrWFv+7Vs3B6Rc08J/8L2qCd6h5SnlyXgQ5TUQI="
       crossorigin="anonymous"
     ></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
     <link rel="manifest" href="/manifest.json" />
 
@@ -133,7 +136,7 @@
   <header>
     <div style="background: rgba(0, 0, 0, 0.2);">
       <div class="btn-group " role="group" aria-label="nav">
-        <button type="button" class="" onclick="location.replace('')">
+        <button type="button" class="">
           P2Pbin
         </button>
         <textarea
@@ -157,6 +160,9 @@
         </button>
         <button onclick="load()" class="" id="load" name="load" type="button">
           Load
+        </button>
+        <button onclick="document.getElementById('paste').value = null" class="" id="reset" name="reset" type="button">
+          Reset
         </button>
       </div>
     </div>
