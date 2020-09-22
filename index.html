@@ -107,17 +107,11 @@ function clip (){
   <header>
     <div style="background: rgba(0, 0, 0, 0.2);">
       <div class="btn-group " role="group" aria-label="nav">
-        <button type="button" class="btn" onclick="location.replace('')" class="copybtn">
-          <img
-          src="https://cdn.glitch.com/82004cd7-a28e-47b6-b10c-963b72f410c5%2Fchecklist.png?v=1600716151067"
-          alt="IPFSbin Icon"
-          width="32"
-          height="32"
-        />
+        <button type="button" class="btn" onclick="location.replace('')">
           IPFSbin
         </button>
         <textarea rows="1" cols="20" id="mainurl" name="mainurl" disabled hidden></textarea>
-        <button onclick="clip()" class="btn" id="copymsg" name="copymsg">Copy!</button>
+        <button onclick="clip()" class="btn" id="copybtn" name="copybtn" disabled>Copy!</button>
       </div>
     </div>
     
@@ -128,29 +122,18 @@ function clip (){
       <center>
         <textarea
           id="paste"
-          rows="12"
+          rows="24"
           cols="125"
           name="paste"
           style="width:100%"
           oninput="copy()"
+                  disabled
         >
 Loading...</textarea
         >
-
       </center>
     </div>
-    <center></center>
   </body>
-  <br /><br />
   <footer>
-    <script>
-      paste.disabled = true;
-      copybtn.disabled = true;
-    </script>
-    <p>
-      <center>
-        <script src="copyright.js"></script>
-      </center>
-    </p>
   </footer>
 </html>
