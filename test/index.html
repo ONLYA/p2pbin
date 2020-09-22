@@ -1,0 +1,50 @@
+<script src="https://cdn.jsdelivr.net/npm/ipfs@0.50.2/dist/index.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const node = await Ipfs.create({ repo: 'ipfs-' + Math.random() })
+      window.node = node
+
+      const status = node.isOnline() ? '🟢' : '🔴'
+
+      console.log(`Node status: ${status}`)
+      document.getElementById('status').innerHTML = `Node status: ${status}`
+
+      // You can write more code here to use it. Use methods like
+      // node.add, node.get. See the API docs here:
+      // https://github.com/ipfs/js-ipfs/tree/master/packages/interface-ipfs-core
+    })
+async function push(){
+try {
+    const { cid } = await node.add('Hello world!')
+      document.getElementById('push').innerHTML = "Can store: 🟢"
+
+} catch (error){
+  return;
+}
+  
+  
+}
+async function get(){
+try {
+      for await (const data of node.cat('QmQzCQn4puG4qu8PVysxZmscmQ5vT1ZXpqo7f58Uh9QfyY')) {
+        console.log(data.toString())
+      }
+      
+
+} catch (error){
+  return;
+}
+  
+  document.getElementById('push').innerHTML = "Can store: 🟢"
+}
+</script>
+
+<h1>
+  P2Pbin Test Suite
+</h1>
+<p id="status">Node status: 🔴</p>
+<p id="push">Can store: 🔴</p>
+<p id="get">Can get: 🔴</p>
+<button onclick="push();get();">
+  Start!
+</button>
