@@ -4,6 +4,7 @@ textarea {
   overflow: auto;
   height: 100%;
   margin: 0;
+  border: none;
 }
 .center {
   margin: 0;
@@ -29,6 +30,12 @@ pre.custom {
 }
 html {
   font-size: 100%;
+}
+* {
+  color: #FFFFFF;
+}
+.back {
+  background-color:#002b36;
 }
 /* Media Queries: Tablet Landscape */
 @media screen and (max-width: 1060px) {
