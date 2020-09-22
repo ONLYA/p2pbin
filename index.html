@@ -90,7 +90,7 @@
         var { cid } = await node.add(
           document.getElementById("paste").value
         );
-        ipfs.pin.add(cid.string);
+        await node.pin.add(cid.string);
 
         navigator.clipboard
           .writeText(`${location.href}?id=${cid.string}`)

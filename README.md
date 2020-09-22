@@ -24,9 +24,11 @@ Thanks:
 
 
 ### How To selfhost:
+1. download the latest version: https://github.com/owner/repository/releases/latest/download/
+2. Unzip it
+3. Then, add it using this command
 ```
-git clone github.com/aboutDavid/p2pbin.git
-
+ipfs add -r p2pbin/
 ```
 Project URL: [https://p2pbin.glitch.me/](https://p2pbin.glitch.me/)
 GitHub: [https://github.com/aboutDavid/p2pbin](https://github.com/aboutDavid/p2pbin)
