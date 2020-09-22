@@ -75,9 +75,6 @@
     <script src="main.js" type="text/javascript" defer></script>
 
     <script>
-        if (!localStorage.getItem("theme")) {
-    localStorage.getItem("dark");
-  }
       async function copy() {
         var { cid } = await node.add(document.getElementById("paste").value);
         document.getElementById(
@@ -123,25 +120,7 @@
         }
         paste.disabled = false;
       }
-      function mode() {
-
-  if (localStorage.getItem("theme") === "dark") {
-    localStorage.setItem("theme", "light");
-    document.body.style.backgroundColor = "white";
-    paste.style.backgroundColor = "white";
-    paste.style.color = "black";
-
-    return;
-  }
-  if (localStorage.getItem("theme") === "light") {
-    localStorage.setItem("theme", "dark");
-    document.body.style.backgroundColor = "white";
-    paste.style.backgroundColor = "#002b36";
-    paste.style.color = "#002b36";
-
-    return;
-  }
-}
+ 
 
     </script>
     
@@ -174,15 +153,6 @@
         </button>
         <button onclick="load()" class="" id="load" name="load" type="button">
           Load
-        </button>
-        <button
-          onclick="mode()"
-          class=""
-          id="toggletheme"
-          name="toggletheme"
-          type="button"
-        >
-          Toggle Theme
         </button>
       </div>
     </div>
