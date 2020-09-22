@@ -88,13 +88,10 @@
       if (location.protocol === "http:") {
         location.replace(window.location.href.replace("http:", "https:"));
       } // Credit: youngchief-btw
-      var clipboard = new Clipboard(".copyButton");
-      clipboard.on("success", function(e) {
-        console.log(e);
-      });
-      clipboard.on("error", function(e) {
-        console.log(e);
-      });
+function clip (){
+  document.getElementById("mainurl").select();
+document.execCommand("copy");
+}
     </script>
     <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
@@ -107,12 +104,11 @@
           width="32"
           height="32"
         />
-        <button type="button" class="btn st" onclick="location.replace('')">
+        <button type="button" class="btn" onclick="location.replace('')">
           Home
         </button>
-        <textarea rows="1" cols="20" id="mainurl" name="mainurl"></textarea>
-        <button class="copyButton" id="copyButtonId" data-id="@item.Type"
- data-clipboard-action="copy" data-clipboard-target="div#copy">Copy!</button>
+        <textarea rows="1" cols="20" id="mainurl" name="mainurl" oninput="copy()"></textarea>
+        <button onclick="clip()" class="btn">Copy!</button>
       </div>
     </div>
     <div id="status">
