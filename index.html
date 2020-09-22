@@ -113,6 +113,7 @@
       }
       async function load(){
   var id = prompt("Please enter an ID to load", "");
+        if (!id){return}
         paste.disabled = true;
         document.getElementById("paste").value = "Loading..."
         for await (const data of node.cat(id)) {
