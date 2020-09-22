@@ -25,17 +25,20 @@ pre.custom {
   -webkit-tab-size: 2;
 }
 .copy {
-     width: 3vw;
-    height: 3vh;
+  width: 3vw;
+  height: 3vh;
 }
 html {
   font-size: 100%;
 }
-* {
+button {
   color: #FFFFFF;
+  background: transparent;
+  border: none !important;
+  font-size: 75%;
 }
 .back {
-  background-color:#002b36;
+  background-color: #002b36;
 }
 /* Media Queries: Tablet Landscape */
 @media screen and (max-width: 1060px) {
