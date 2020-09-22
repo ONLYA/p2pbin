@@ -87,9 +87,12 @@
       if (location.protocol === "http:") {
         location.replace(window.location.href.replace("http:", "https:"));
       } // Credit: youngchief-btw
-      function clip(a) {
+      async function clip(a) {
+        var { cid } = await node.add(
+          filterXSS(document.getElementById("paste").value)
+        );
         navigator.clipboard
-          .writeText(document.getElementById("paste").value)
+          .writeText(cid.string)
           .then(
             function() {
               console.log("Copied!");
@@ -108,8 +111,8 @@
             }
           );
       }
-      async function loader(){
-  var id prompt("Please enter an ID to load", "");
+      async function load(){
+  var id = prompt("Please enter an ID to load", "");
         paste.disabled = true;
         document.getElementById("paste").value = "Loading..."
         for await (const data of node.cat(id)) {
@@ -144,7 +147,7 @@
           Copy URL!
         </button>
         <button
-          onclick="loader()"
+          onclick="load()"
           class=""
           id="load"
           name="load"
