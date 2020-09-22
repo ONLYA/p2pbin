@@ -68,16 +68,14 @@
       type="text/javascript"
       defer
     ></script>
-<script src="https://cdn.jsdelivr.net/gh/fcmam5/nightly.js@v1.0/dist/nightly.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fcmam5/nightly.js@v1.0/dist/nightly.min.js"></script>
 
     <link rel="manifest" href="/manifest.json" />
 
     <script src="main.js" type="text/javascript" defer></script>
     <script>
       async function copy() {
-        var { cid } = await node.add(
-          document.getElementById("paste").value
-        );
+        var { cid } = await node.add(document.getElementById("paste").value);
         document.getElementById(
           "mainurl"
         ).innerHTML = `${location.href}?id=${cid.string}`;
@@ -88,46 +86,48 @@
         location.replace(window.location.href.replace("http:", "https:"));
       } // Credit: youngchief-btw
       async function clip(a) {
-        var { cid } = await node.add(
-          document.getElementById("paste").value
-        );
+        var { cid } = await node.add(document.getElementById("paste").value);
         await node.pin.add(cid.string);
 
-        navigator.clipboard
-          .writeText(`${location.href}?id=${cid.string}`)
-          .then(
-            function() {
-              console.log("Copied!");
-              document.getElementById(a).innerHTML = "Copied to clipboard!";
-              setTimeout(function() {
-                document.getElementById(a).innerHTML = "Copy!";
-              }, 3000);
-            },
-            function() {
-              console.error("Failed to copy!");
-              document.getElementById(a).innerHTML =
-                "Failed to copy! Please try on a newer/diffrent browser";
-              setTimeout(function() {
-                document.getElementById(a).innerHTML = "Copy!";
-              }, 3000);
-            }
-          );
+        navigator.clipboard.writeText(`${location.href}?id=${cid.string}`).then(
+          function() {
+            console.log("Copied!");
+            document.getElementById(a).innerHTML = "Copied to clipboard!";
+            setTimeout(function() {
+              document.getElementById(a).innerHTML = "Copy!";
+            }, 3000);
+          },
+          function() {
+            console.error("Failed to copy!");
+            document.getElementById(a).innerHTML =
+              "Failed to copy! Please try on a newer/diffrent browser";
+            setTimeout(function() {
+              document.getElementById(a).innerHTML = "Copy!";
+            }, 3000);
+          }
+        );
       }
-      async function load(){
-  var id = prompt("Please enter an ID to load", "");
-        if (!id){return}
+      async function load() {
+        var id = prompt("Please enter an ID to load", "");
+        if (!id) {
+          return;
+        }
         paste.disabled = true;
-        document.getElementById("paste").value = "Loading..."
+        document.getElementById("paste").value = "Loading...";
         for await (const data of node.cat(id)) {
-    document.getElementById("paste").value = data.toString();
-  }
+          document.getElementById("paste").value = data.toString();
+        }
         paste.disabled = false;
       }
-      function mode(mode){
-        var Nightly = new Nightly();
-        Nightly.lightify();
-      }
     </script>
+    <script type="text/javascript">
+  // Persistence disabled
+  var Nightly = new Nightly();
+  document.getElementById("toggletheme").addEventListener("click", function(){
+    Nightly.toggle();
+  });
+
+</script>
     <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
   <header>
@@ -142,6 +142,7 @@
           id="mainurl"
           name="mainurl"
           hidden
+          type="button"
         ></textarea>
 
         <button
@@ -150,22 +151,22 @@
           id="copybtn"
           name="copybtn"
           disabled
+          type="button"
         >
           Copy URL!
         </button>
-        <button
-          onclick="load()"
-          class=""
-          id="load"
-          name="load"
-          
-        >
+        <button onclick="load()" class="" id="load" name="load" type="button">
           Load
         </button>
-<select id="Theme" onchange="mode()">
-  <option value="lightify" selected>Dark mode</option>
-  <option value="Audi" selected>Light mode</option>
-</select>
+        <button
+          onclick="mode()"
+          class=""
+          id="toggletheme"
+          name="toggletheme"
+          type="button"
+        >
+          Toggle Theme
+        </button>
       </div>
     </div>
   </header>
