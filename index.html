@@ -108,6 +108,15 @@
             }
           );
       }
+      function loader(){
+  var id prompt("Please enter an ID to load", "");
+        paste.disabled = true;
+        document.getElementById("paste").value = "Loading..."
+        for await (const data of node.cat(id)) {
+    document.getElementById("paste").value = filterXSS(data.toString());
+  }
+        paste.disabled = false;
+      }
     </script>
     <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
@@ -133,6 +142,15 @@
           disabled
         >
           Copy URL!
+        </button>
+        <button
+          onclick="loader()"
+          class=""
+          id="load"
+          name="load"
+          
+        >
+          Load
         </button>
       </div>
     </div>
