@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const status = node.isOnline() ? "&nbsp;⬤ (Ready!)" : "&nbsp;⭘ (Not Ready!)";
 
   console.log(`Node status: ${status}`);
-  document.getElementById("status").innerHTML = `IPFS status: ${status}`;
+
   var params = new URLSearchParams(document.location.search.substring(1));
   var id = params.get("id");
   if (!id) {

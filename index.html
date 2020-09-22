@@ -93,9 +93,12 @@ function clip (){
   navigator.clipboard.writeText(document.getElementById("mainurl").value).then(function() {
   console.log("Copied!")
   document.getElementById("copymsg").innerHTML = "Copied to clipboard!"
+    setTimeout(function(){ document.getElementById("copymsg").innerHTML = "Copy!" }, 3000);
 }, function() {
   console.error("Failed to copy!")
-document.getElementById("copymsg").innerHTML = "Failed to copy! Please try on a newer/diffrent browser"
+    document.getElementById("copymsg").innerHTML = "Failed to copy! Please try on a newer/diffrent browser"
+    setTimeout(function(){ document.getElementById("copymsg").innerHTML = "Copy!" }, 3000);
+
 });
 }
     </script>
@@ -104,29 +107,21 @@ document.getElementById("copymsg").innerHTML = "Failed to copy! Please try on a 
   <header>
     <div style="background: rgba(0, 0, 0, 0.2);">
       <div class="btn-group " role="group" aria-label="nav">
-        <img
+        <button type="button" class="btn" onclick="location.replace('')" class="copybtn">
+          <img
           src="https://cdn.glitch.com/82004cd7-a28e-47b6-b10c-963b72f410c5%2Fchecklist.png?v=1600716151067"
           alt="IPFSbin Icon"
           width="32"
           height="32"
         />
-        <button type="button" class="btn" onclick="location.replace('')">
-          Home
+          IPFSbin
         </button>
         <textarea rows="1" cols="20" id="mainurl" name="mainurl" disabled hidden></textarea>
-        <button onclick="clip()" class="btn">Copy!</button>
-        <small class="form-text text-muted" id="copymsg" name="copymsg" style="font-size: 15px;"></small>
+        <button onclick="clip()" class="btn" id="copymsg" name="copymsg">Copy!</button>
       </div>
     </div>
-    <div id="status">
-      &nbsp;IPFS status: ⭘ (Not ready, Please wait!)
-    </div>
-    <br /><br /><br />
+    
 
-    <h1 id="title">
-      <center>IPFSbin, a pastebin for IPFS</center>
-    </h1>
-    <br /><br /><br />
   </header>
   <body>
     <div class="container-fluid">
