@@ -3,6 +3,7 @@ textarea {
   resize: none;
   overflow: auto;
   height: 100%;
+  margin: 0;
 }
 .center {
   margin: 0;
