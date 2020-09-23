@@ -1,8 +1,6 @@
 const staticCacheName = 'ipfsbin';
 const assets = [
   './main.js',
-  './copyright.js',
-  './xss.js',
   './style.css',
   './index.html',
   'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css',
