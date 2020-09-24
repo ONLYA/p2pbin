@@ -1,7 +1,7 @@
 {
   "name": "P2Pbin",
   "short_name": "P2Pbin",
-  "start_url": ".",
+  "start_url": "/",
   "display": "minimal-ui",
   "background_color": "#002b36",
   "description": "A P2P paste sharing application based on IPFS.",
