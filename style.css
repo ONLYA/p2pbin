@@ -4,8 +4,7 @@ textarea {
   overflow: auto;
   margin: 0;
   border: none;
-  width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 .center {
   margin: 0;
