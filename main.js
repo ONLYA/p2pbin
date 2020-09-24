@@ -29,7 +29,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!id) {
     id = "QmT7QN4RKaQfu85qhpwG26HqSoGEQRkFbUPgVVbN95DCK9";
   }
-
+if (params.get("fontsize")){
+  document.getElementById("paste").style.fontSize = params.get("fontsize");
+  console.log("fontsize: "+ params.get("fontsize"))
+}
   for await (const data of node.cat(id)) {
     document.getElementById("paste").value = data.toString();
   }
