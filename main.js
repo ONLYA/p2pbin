@@ -36,6 +36,7 @@ if (readonly){}
   }
   paste.disabled = false;
   copybtn.disabled = false;
-
+if (!location.pathname.includes("")){
   window.history.replaceState({}, document.title, "/");
+}
 });
