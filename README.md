@@ -33,7 +33,6 @@ Features:
 - It requires no server storage.
  
 Thanks:
-- @youngchief_btw for the HTTP to HTTPS redirect
 - @khalby786 for the PWA
 
 
