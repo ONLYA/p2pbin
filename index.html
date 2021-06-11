@@ -90,9 +90,9 @@
         document.getElementById("rawurl").innerHTML =
           "https://gateway.ipfs.io/ipfs/" + cid.string;
       }
-      if (location.protocol === "http:") && (window.location.port !== 8080) {
+      if (location.protocol === "http:" && window.location.port !== 8080) {
         location.replace(window.location.href.replace("http:", "https:"));
-      } // Credit: youngchief-btw
+      } 
       async function clip(a) {
         var { cid } = await node.add(document.getElementById("paste").value);
         await node.pin.add(cid.string);
